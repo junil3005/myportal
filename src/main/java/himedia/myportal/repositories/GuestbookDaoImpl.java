@@ -2,11 +2,9 @@
 package himedia.myportal.repositories;
 
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import himedia.myportal.exceptions.GuestbookDaoException;
 import himedia.myportal.repositories.vo.GuestbookVo;
 

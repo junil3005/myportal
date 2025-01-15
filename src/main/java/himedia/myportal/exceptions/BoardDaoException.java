@@ -6,8 +6,7 @@ public class BoardDaoException extends RuntimeException {
 	private BoardVo boardVo = null;
 
 	public BoardDaoException() {
-		super();
-		
+		super();		
 	}
 
 	public BoardDaoException(String message) {
@@ -15,13 +14,11 @@ public class BoardDaoException extends RuntimeException {
 		
 	}
 	
-	public BoardDaoException(String message, BoardVo) {
+	public BoardDaoException(String message, BoardVo vo) {
 		super(message);
-		
-		
+		this.boardVo = vo;
 	}
 	
-
 	public BoardVo getBoardVo() {
 		return boardVo;
 	}

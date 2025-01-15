@@ -1,10 +1,8 @@
 package himedia.myportal.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import himedia.myportal.repositories.GuestbookDao;
 import himedia.myportal.repositories.vo.GuestbookVo;
 
@@ -32,6 +30,4 @@ public class GuestbookServicesImpl implements GuestbookServices {
 		int deletedCount = guestbookDaoImpl.delete(vo);
 		return 1 == deletedCount;
 	}
-	
-
 }

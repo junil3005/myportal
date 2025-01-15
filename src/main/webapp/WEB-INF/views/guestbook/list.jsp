@@ -1,31 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
+	prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" 
+	prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>My Homepage</title>
-<link type="text/css"
-	  rel="stylesheet"
-	  href="<%= request.getContextPath() %>/css/guestbook.css"/>
+<link type="text/css" 
+	rel="stylesheet" 
+	href="<%= request.getContextPath() %>/css/guestbook.css"/>
 </head>
 </head>
 <body>
-	<div id="container">
-	
-	<c:import url="/WEB-INF/views/includes/header.jsp">
-	 <c:param name="param1" value="value1" />
-	 <c:param name="param1" value="value2" />
-	</c:import>
-	 <c:import url="/WEB-INF/views/includes/navigation.jsp" />
-	 <div id="wrapper">
-	 <div id="content">
-	
-  	<!--Content -->
+  <div id="container">
+  
+    <c:import url="/WEB-INF/views/includes/header.jsp">
+      <c:param name="param1" value="value1" />
+      <c:param name="param1" value="value2" />
+    </c:import>
+	<c:import url="/WEB-INF/views/includes/navigation.jsp" />
+	<div id="wrapper">
+      <div id="content">
+      
+      <!-- Content -->
 	<h1>방명록</h1>
-	<form action="<c:url value="/guestbook/write" />" method="POST">
+	<form action="<c:url value="/guestbook/write" />" 
+			method="POST">
 	<table border=1 width=500>
 		<tr>
 			<td>이름</td><td><input type="text" name="name"></td>
@@ -63,15 +66,13 @@
 			</td>
 		</tr>
 	</table>
-	</c:forEach>
-	
-    </div>
-    </div>
+    </c:forEach>
     
-    <c:import url="/WEB-INF/views/includes/footer.jsp" />
-    
+    </div>
 	</div>
-    
-	</body>
 	
+	<c:import url="/WEB-INF/views/includes/footer.jsp" />
+  </div>
+  
+</body>
 </html>

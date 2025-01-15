@@ -88,12 +88,11 @@ public class BoardVo {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "BoardVo [no=" + no + ", title=" + title + ", content=" + content + ", hit=" + hit + ", regDate="
-				+ regDate + ", userNo=" + userNo + ", userName=" + userName + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ regDate + ", userNo=" + userNo + ", userName=" + userName + "]";
 	}
 	
 }

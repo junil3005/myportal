@@ -2,6 +2,7 @@ package himedia.myportal.services;
 
 import java.util.List;
 
+
 import himedia.myportal.repositories.vo.BoardVo;
 
 public interface BoardService {
