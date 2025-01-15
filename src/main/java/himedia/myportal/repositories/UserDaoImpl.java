@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			return sqlSession.insert("user.insert", vo);
 		} catch (Exception e) {
-		  throw new UserDaoException("회원가입 중 오류", vo);
+			throw new UserDaoException("회원가입 중 오류", vo);
 		}
 	}
 
@@ -32,12 +32,15 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public UserVo selectUser(String email, String password) {
-		Map<String, String> userMap =new HashMap<>();
-		userMap.put("email",email);
+		Map<String, String> userMap 
+			= new HashMap<>();
+		userMap.put("email", email);
 		userMap.put("password", password);
 		
-		UserVo vo = sqlSession.selectOne("user.selectUserByEmailAndPassword", userMap);
-				
+		UserVo vo = 
+			sqlSession.selectOne("user.selectUserByEmailAndPassword", 
+					userMap);
 		return vo;
 	}
+
 }

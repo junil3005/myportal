@@ -1,13 +1,13 @@
 package himedia.myportal.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -18,7 +18,7 @@ public class UsersController {
 	@Autowired
 	UserService userServiceImpl;
 	
-	@GetMapping({"","/","/join"})
+	@GetMapping({"", "/", "/join"})
 	public String joinForm() {
 		return "users/joinform";
 	}
@@ -28,8 +28,7 @@ public class UsersController {
 		return "users/joinsuccess";
 	}
 	
-	@PostMapping ("/join")
-	
+	@PostMapping("/join")
 	public String joinAction(@ModelAttribute UserVo userVo) {
 		boolean success = userServiceImpl.join(userVo);
 		
@@ -43,19 +42,23 @@ public class UsersController {
 	}
 	
 	@GetMapping("/login")
-	
 	public String loginForm() {
 		return "users/loginform";
 	}
 	
-	@PostMapping ("/login")
-	public String loginAction(@RequestParam(value="email", required=false)
-	
-		   String email, @RequestParam(value="password", required=false)
-		   String password, HttpSession session ) {
-		if (email.length() == 0 || password.length() == 0) {
-			System.err.println("email 혹은 password가 전송되지 않았음");
-			return "redirect:/users/login";
+	@PostMapping("/login")
+	public String loginAction(
+			@RequestParam(value="email",
+							required=false)
+			String email, 
+			@RequestParam(value="password",
+							required=false)
+			String password,
+			HttpSession session) {
+		if (email.length() == 0 || 
+				password.length() == 0) {
+			System.err.println("email 혹은 password가 전송되지 않음");
+			return "redirect:/users/login";			
 		}
 		
 		UserVo authUser = userServiceImpl.getUser(email, password);
@@ -65,7 +68,7 @@ public class UsersController {
 			session.setAttribute("authUser", authUser);
 			return "redirect:/";
 		} else {
-			 return "redirect:/users/login";
+			return "redirect:/users/login";
 		}
 	}
 	
