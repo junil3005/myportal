@@ -9,7 +9,7 @@ public class BoardVo {
 	private Integer userNo;
 	private String userName;
 	
-	public BoardVo() {		//	기본 생성자
+	public BoardVo() {
 		super();
 	}
 
@@ -31,7 +31,6 @@ public class BoardVo {
 		this.userNo = userNo;
 		this.userName = userName;
 	}
-	
 
 	public Integer getNo() {
 		return no;

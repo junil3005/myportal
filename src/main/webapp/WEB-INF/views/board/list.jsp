@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
 	prefix="c" %>
@@ -41,11 +42,19 @@
 			<td>${vo.userName }</td>
 			<td>${vo.hit }</td>
 			<td>${vo.regDate }</td>
-			<td><a href="">삭제</a></td>
+			<td>
+				<c:if test="${not empty authUser }">
+					<c:if test="${authUser.no == vo.userNo }">
+				<a href="<c:url value="/board/${vo.no }/delete" />">삭제</a>
+					</c:if>
+				</c:if>
+			</td>
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="6"><a href="<c:url value="/board/write" />">글쓰기</a></td>
+			<td colspan="6">
+				<a href="<c:url value="/board/write" />">글쓰기</a>
+			</td>
 		</tr>
 	</table>
 	

@@ -2,7 +2,6 @@ package himedia.myportal.services;
 
 import java.util.List;
 
-
 import himedia.myportal.repositories.vo.BoardVo;
 
 public interface BoardService {
@@ -10,6 +9,5 @@ public interface BoardService {
 	public BoardVo getContent(Integer no);
 	public boolean write(BoardVo boardVo);
 	public boolean update(BoardVo boardVo);
-	public boolean deleteByNoAndUserNo(Integer no, Long userNo);
-
+	public boolean deleteByNoAndUserNo(Integer no, Integer userNo);
 }

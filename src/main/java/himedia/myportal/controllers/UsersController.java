@@ -1,5 +1,9 @@
 package himedia.myportal.controllers;
 
+import java.util.HashMap;
+
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import himedia.myportal.repositories.vo.UserVo;
 import himedia.myportal.services.UserService;
@@ -78,5 +84,22 @@ public class UsersController {
 		session.invalidate();
 		
 		return "redirect:/";
+	}
+	
+	@ResponseBody
+	@GetMapping("/checkEmail")
+	//	JSON API
+	public Object exists(@RequestParam(value="email",
+			required=false,
+			defaultValue="") String email) {
+		//	{ "result": "success", "data": true }
+		UserVo vo = userServiceImpl.getUser(email);
+		boolean exists = vo != null ? true: false;
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("result", "success");
+		map.put("exists", exists);
+		
+		return map;
 	}
 }

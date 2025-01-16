@@ -20,14 +20,16 @@ public class UserDaoImpl implements UserDao {
 		try {
 			return sqlSession.insert("user.insert", vo);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new UserDaoException("회원가입 중 오류", vo);
 		}
 	}
 
 	@Override
 	public UserVo selectUser(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		UserVo vo = 
+				sqlSession.selectOne("user.selectUserByEmail", email);
+		return vo;
 	}
 
 	@Override

@@ -4,9 +4,9 @@
 <mapper namespace="user">
 	<insert id="insert" parameterType="userVo">
 	INSERT INTO users 
-		(name, password, email, gender)
+		(name, email, password, gender)
 	VALUES(
-		#{name}, #{password}, #{email}, #{gender}
+		#{name}, #{email}, #{password}, #{gender}
 	)
 	</insert>
 	
@@ -19,5 +19,11 @@
 	WHERE
 		email=#{email} AND password=#{password}	
 	
+	</select>
+	<!--  커리만들기 -->
+	<select id="selectUserByEmail" parameterType="string" resultType="userVo">
+	SELECT no, name, email, gender
+	FROM users
+	WHERE email=#{value}
 	</select>
 </mapper>
