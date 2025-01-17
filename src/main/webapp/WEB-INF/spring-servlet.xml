@@ -51,16 +51,18 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
+	
+	<!--  Interceptors -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/board/**" />
+			<bean class="himedia.myportal.interceptors.MyInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/board/**" />
+			<bean class="himedia.myportal.interceptor2" />
+		</mvc:interceptor>
+	</mvc:interceptors>	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 </beans>
